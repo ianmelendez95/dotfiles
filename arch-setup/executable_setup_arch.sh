@@ -157,6 +157,13 @@ function set_x_kbd_settings () {
 function set_touchpad_settings () {
 	sudo xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1
 	sudo xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled' 1
+	sudo xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.5
+	sudo xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Scrolling Pixel Distance' 10
+}
+
+function cp_xorg_configs () {
+	sudo cp ./dotfiles/xorg.conf.d/* /etc/X11/xorg.conf.d/.
+	sudo chown -R root:root /etc/X11/xorg.conf.d
 }
 
 
