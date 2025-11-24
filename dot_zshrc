@@ -19,3 +19,15 @@ alias chez="chezmoi"
 alias cheza="chezmoi add"
 alias chezcd="chezmoi cd"
 alias cheze="chezmoi edit"
+
+# git
+alias gs="git status"
+alias gcm="git commit -m"
+
+# setup_arch.sh
+alias csetup="vim ~/arch-setup/setup_arch.sh"
+alias ssetup="source ~/arch-setup/setup_arch.sh"
+
+# zsh
+alias cz="vim ~/.zshrc"
+alias sz="source ~/.zshrc"

@@ -4,9 +4,6 @@ prefix="/usr"
 exec_prefix="${prefix}"
 xrdb="xrdb"
 xinitdir="/etc/X11/xinit"
-xclock="xclock"
-xterm="xterm"
-twm="twm"
 xmodmap="xmodmap"
 
 userresources="$HOME/.Xresources"
@@ -49,10 +46,6 @@ if [ -d "$xinitdir"/xinitrc.d ] ; then
 	unset f
 fi
 
-#$twm" &
-#$xclock" -geometry 50x50-1+1 &
-#$xterm" -geometry 80x50+494+51 &
-#$xterm" -geometry 80x20+494-0 &
+xset r rate 200 30
 exec xmonad
-#exec "$xterm" -geometry 80x66+0+0 -name login
 
