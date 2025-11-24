@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 
+# README!!!
+# Double check the intel video drivers,
+# I don't think newer gens are compatible with xf86-video-intel
+
 PACKAGES="base
 linux
 linux-firmware
 base-devel
 intel-ucode
+xf86-video-intel
+intel-media-driver
 fwupd
 neovim
 sudo
@@ -20,7 +26,13 @@ zsh-completions
 xorg-server
 xorg-apps
 xorg-init
-mesa"
+mesa
+pipewire
+pipewire-pulse
+pipewire-alsa
+wireplumber
+alsa-utils
+sof-firmware"
 
 function common_check_ping () {
 	echo "Checking connectivity"
@@ -164,6 +176,10 @@ function set_touchpad_settings () {
 function cp_xorg_configs () {
 	sudo cp ./dotfiles/xorg.conf.d/* /etc/X11/xorg.conf.d/.
 	sudo chown -R root:root /etc/X11/xorg.conf.d
+}
+
+function install_omzsh () {
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 
