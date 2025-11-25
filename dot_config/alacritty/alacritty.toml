@@ -4,39 +4,28 @@ TERM = "xterm-256color"
 [font]
 size = 8.0
 
-# github Alacritty Colors
+[colors.primary]
+foreground = "#cccccc"
+background = "#1e1e1e"
 
-# Default colors
-# [colors.primary]
-# background = '#24292e'
-# foreground = '#d1d5da'
-
-# Normal colors
+# VSCode theme
 [colors.normal]
-black   = '#586069'
-red     = '#ea4a5a'
-green   = '#34d058'
-yellow  = '#ffea7f'
-blue    = '#2188ff'
-magenta = '#b392f0'
-cyan    = '#39c5cf'
-white   = '#d1d5da'
+black = "#000000"
+red = "#cd3131"
+green = "#0dbc79"
+yellow = "#e5e510"
+blue = "#2472c8"
+magenta = "#bc3fbc"
+cyan = "#11a8cd"
+white = "#e5e5e5"
 
-# Bright colors
 [colors.bright]
-black   = '#959da5'
-red     = '#f97583'
-green   = '#85e89d'
-yellow  = '#ffea7f'
-blue    = '#79b8ff'
-magenta = '#b392f0'
-cyan    = '#56d4dd'
-white   = '#fafbfc'
+black = "#666666"
+red = "#f14c4c"
+green = "#23d18b"
+yellow = "#f5f543"
+blue = "#3b8eea"
+magenta = "#d670d6"
+cyan = "#29b8db"
+white = "#e5e5e5"
 
-[[colors.indexed_colors]]
-index = 16
-color = '#d18616'
-
-[[colors.indexed_colors]]
-index = 17
-color = '#f97583'
