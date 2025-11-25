@@ -97,9 +97,12 @@ xmonad-contrib
 alacritty
 xz
 make
+cmake
 gmp
 ncurses
-brightnessctl"
+brightnessctl
+ripgrep
+fd"
 
 function wifi_connect () {
 	echo "Enabling NetworkManager"
