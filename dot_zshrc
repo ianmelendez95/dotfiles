@@ -154,15 +154,14 @@ function chezall () {
 function chezp () {
   if [ -z "$1" ]; then 
     echo "usage: chezp msg"
-    exit 1
+  else
+    msg="$1"
+    chez_dir="$HOME/.local/share/chezmoi"
+
+    git -C "$chez_dir" add .
+    git -C "$chez_dir" commit -m "$msg"
+    git -C "$chez_dir" push
   fi
-
-  msg="$1"
-  chez_dir="$HOME/.local/share/chezmoi"
-
-  git -C "$chez_dir" add .
-  git -C "$chez_dir" commit -m "$msg"
-  git -C "$chez_dir" push
 }
 
 
