@@ -151,6 +151,20 @@ function chezall () {
   done
 }
 
+function chezp () {
+  if [ -z "$1" ]; then 
+    echo "usage: chezp msg"
+    exit 1
+  fi
+
+  msg="$1"
+  chez_dir="$HOME/.local/share/chezmoi"
+
+  git -C "$chez_dir" add .
+  git -C "$chez_dir" commit -m "$msg"
+  git -C "$chez_dir" push
+}
+
 
 
 
