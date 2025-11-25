@@ -11,15 +11,21 @@ base-devel
 intel-ucode
 xf86-video-intel
 intel-media-driver
-fwupd
-neovim
-sudo
+alsa-utils
+sof-firmware
+pipewire
+pipewire-pulse
+pipewire-alsa
+wireplumber
 networkmanager
 iputils
 man-db
 man-pages
 texinfo
 curl
+git
+sudo
+neovim
 which
 zsh
 zsh-completions
@@ -27,12 +33,8 @@ xorg-server
 xorg-apps
 xorg-init
 mesa
-pipewire
-pipewire-pulse
-pipewire-alsa
-wireplumber
-alsa-utils
-sof-firmware"
+noto-fonts
+noto-fonts-emoji"
 
 function common_check_ping () {
 	echo "Checking connectivity"
@@ -88,6 +90,7 @@ openssh
 xorg-server
 xorg-apps
 xorg-init
+xsettingsd
 mesa
 xmonad
 xmonad-contrib
