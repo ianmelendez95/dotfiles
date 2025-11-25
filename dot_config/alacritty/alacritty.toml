@@ -4,11 +4,17 @@ TERM = "xterm-256color"
 [font]
 size = 8.0
 
+[[keyboard.bindings]]
+key = "N"
+mods = "Shift|Control"
+action = "SpawnNewInstance"
+
+# VSCode theme
+
 [colors.primary]
 foreground = "#cccccc"
 background = "#1e1e1e"
 
-# VSCode theme
 [colors.normal]
 black = "#000000"
 red = "#cd3131"
