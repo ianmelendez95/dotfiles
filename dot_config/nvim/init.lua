@@ -1,4 +1,3 @@
-require("config.lazy")
 
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
@@ -7,3 +6,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
+
+vim.g.mapleader = ","
+
+require("config.lazy")

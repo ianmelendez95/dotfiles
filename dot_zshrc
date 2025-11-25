@@ -137,9 +137,12 @@ alias ssetup="source ~/arch-setup/setup_arch.sh"
 alias cz="vim ~/.zshrc"
 alias sz="source ~/.zshrc"
 
-local dot_files=(arch-setup/setup_arch.sh
-.config/xmonad/xmonad.hs
-.zshrc)
+local dot_files=(
+  arch-setup/setup_arch.sh
+  .config/xmonad/xmonad.hs
+  .zshrc
+  .config/nvim/init.lua
+)
 
 function chezall () {
   for f in $dot_files[@]; do 
