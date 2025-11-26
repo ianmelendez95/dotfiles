@@ -124,6 +124,7 @@ alias chez="chezmoi"
 alias cheza="chezmoi add"
 alias chezcd="chezmoi cd"
 alias cheze="chezmoi edit"
+alias chezall="chezmoi re-add"
 
 # git
 alias gs="git status"
@@ -137,20 +138,9 @@ alias ssetup="source ~/arch-setup/setup_arch.sh"
 alias cz="vim ~/.zshrc"
 alias sz="source ~/.zshrc"
 
-local dot_files=(
-  arch-setup/setup_arch.sh
-  .config/xmonad/xmonad.hs
-  .zshrc
-  .config/nvim/init.lua
-  .config/hypr/hyprland.conf
-)
-
-function chezall () {
-  for f in $dot_files[@]; do 
-    echo TRACE chezmoi add "$HOME/$f"
-    chezmoi add "$HOME/$f"
-  done
-}
+# cabal
+alias cb="cabal build"
+alias ct="cabal test"
 
 function chezp () {
   if [ -z "$1" ]; then 
