@@ -94,7 +94,7 @@ xsettingsd
 mesa
 xmonad
 xmonad-contrib
-alacritty
+kitty
 xz
 make
 cmake
@@ -188,4 +188,12 @@ function install_omzsh () {
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
+# Wayland setup
 
+WAYLAND_PACKAGES="hyprland
+aquamarine
+polkit
+mako
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+hyprpolkitagent"

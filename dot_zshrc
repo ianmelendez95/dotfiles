@@ -142,6 +142,7 @@ local dot_files=(
   .config/xmonad/xmonad.hs
   .zshrc
   .config/nvim/init.lua
+  .config/hypr/hyprland.conf
 )
 
 function chezall () {
