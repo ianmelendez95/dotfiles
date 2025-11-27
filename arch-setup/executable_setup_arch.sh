@@ -128,19 +128,6 @@ function install_ghcup () {
 }
 
 
-function build_xmonad () {
-	mkdir -p ~/.config/xmonad && cd ~/.config/xmonad
-	cat << EOF > xmonad.hs
-import XMonad
-
-main :: IO ()
-main = xmonad def
-EOF
-
-	git clone https://github.com/xmonad/xmonad
-	git clone https://github.com/xmonad/xmonad-contrib
-}
-
 function build_xmonad_cabal () {
 	echo "packages: */*.cabal" > cabal.project
 	cabal update
@@ -188,6 +175,7 @@ function install_omzsh () {
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
+
 # Wayland setup
 
 WAYLAND_PACKAGES="hyprland
@@ -197,4 +185,16 @@ mako
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
 hyprpolkitagent
-wl-clipboard"
+wl-clipboard
+sddm
+qt5-wayland
+qt6-wayland
+qt5-declarative"
+
+function setup_sddm () {
+  systemctl enable sddm
+}
+
+function setup_nvim () {
+  git clone https://github.com/neovim/nvim-lspconfig ~/.config/nvim/pack/nvim/start/nvim-lspconfig
+}

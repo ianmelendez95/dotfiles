@@ -5,6 +5,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
+vim.opt.number = true
 
 require("config.lazy")
 
@@ -13,3 +14,16 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+vim.keymap.set('n', '<leader>v', '<Cmd>vsplit<CR><C-w>l')
+vim.keymap.set('n', '<leader>h', '<C-w>h')
+vim.keymap.set('n', '<leader>l', '<C-w>l')
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>.', vim.cmd.Oil)
+vim.keymap.set('n', '<leader>/', vim.lsp.buf.format)
+vim.keymap.set('v', '<leader>r', '"hy:%s/<C-r>h//gc<left><left><left>')
+
+vim.lsp.enable('hls')
+
+require("oil").setup()
+
