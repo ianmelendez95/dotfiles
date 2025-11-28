@@ -6,6 +6,7 @@ vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.number = true
+vim.opt.signcolumn = 'yes'
 
 require("config.lazy")
 
@@ -18,6 +19,8 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 vim.keymap.set('n', '<leader>v', '<Cmd>vsplit<CR><C-w>l')
 vim.keymap.set('n', '<leader>h', '<C-w>h')
 vim.keymap.set('n', '<leader>l', '<C-w>l')
+vim.keymap.set('n', '<leader>j', '<C-w>j')
+vim.keymap.set('n', '<leader>k', '<C-w>k')
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>.', vim.cmd.Oil)
 vim.keymap.set('n', '<leader>/', vim.lsp.buf.format)

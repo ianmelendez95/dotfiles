@@ -5,6 +5,7 @@ return {
     config = function()
       require('onedark').setup {
         style = 'darker'
+        -- style = 'light'
       }
       require('onedark').load()
     end
@@ -36,32 +37,12 @@ return {
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
+  },
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
   }
 }
-
-  -- {
-  --   "folke/which-key.nvim",
-  --   event = "VeryLazy",
-  --   opts = {
-  --     -- your configuration comes here
-  --     -- or leave it empty to use the default settings
-  --     -- refer to the configuration section below
-  --   },
-  --   keys = {
-  --     {
-  --       "<leader>?",
-  --       function()
-  --         require("which-key").show({ global = false })
-  --       end,
-  --       desc = "Buffer Local Keymaps (which-key)",
-  --     },
-  --   },
-  -- }
-  --
-  -- {
-  --   "EdenEast/nightfox.nvim",
-  --   priority = 1000,
-  --   config = function() 
-  --     vim.cmd("colorscheme carbonfox")
-  --   end
-  -- },
