@@ -9,8 +9,9 @@ linux
 linux-firmware
 base-devel
 intel-ucode
-xf86-video-intel
+mesa
 intel-media-driver
+efibootmgr
 alsa-utils
 sof-firmware
 pipewire
@@ -29,10 +30,6 @@ neovim
 which
 zsh
 zsh-completions
-xorg-server
-xorg-apps
-xorg-init
-mesa
 noto-fonts
 noto-fonts-emoji"
 
@@ -127,26 +124,6 @@ function install_ghcup () {
 	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 }
 
-
-function build_xmonad_cabal () {
-	echo "packages: */*.cabal" > cabal.project
-	cabal update
-	cabal install --package-env=$HOME/.config/xmonad --lib base xmonad xmonad-contrib
-	cabal install --package-env=$HOME/.config/xmonad xmonad
-}
-
-function install_xmonad () {
-	mkdir -p ~/.config/xmonad && cd ~/.config/xmonad
-	#cat << 'EOF' > xmonad.hs
-	#import XMonad
-
-	#main :: IO ()
-	#main = xmonad def
-	#EOF
-
-	git clone https://github.com/xmonad/xmonad
-	git clone https://github.com/xmonad/xmonad-contrib
-}
 
 function install_google_chrome () {
 	mkdir ~/builds && cd ~/builds

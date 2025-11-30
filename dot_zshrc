@@ -142,6 +142,10 @@ alias sz="source ~/.zshrc"
 alias cb="cabal build"
 alias ct="cabal test"
 
+function ctm () {
+  cabal test --test-options='-m "'"${1}"'"'
+}
+
 function chezp () {
   if [ -z "$1" ]; then 
     echo "usage: chezp msg"
