@@ -146,6 +146,8 @@ function ctm () {
   cabal test --test-options='-m "'"${1}"'"'
 }
 
+alias nvimdiff="nvim -d"
+
 function chezp () {
   if [ -z "$1" ]; then 
     echo "usage: chezp msg"

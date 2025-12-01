@@ -6,6 +6,7 @@ vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.signcolumn = 'yes'
 
 require("config.lazy")
@@ -27,7 +28,7 @@ vim.keymap.set('n', '<leader>/', vim.lsp.buf.format)
 vim.keymap.set('v', '<leader>r', '"hy:%s/<C-r>h//gc<left><left><left>')
 
 vim.lsp.enable('hls')
-vim.lsp.enable('zls')
+-- vim.lsp.enable('zls')
 
 require("oil").setup()
 

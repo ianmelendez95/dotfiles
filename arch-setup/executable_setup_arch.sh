@@ -31,7 +31,9 @@ which
 zsh
 zsh-completions
 noto-fonts
-noto-fonts-emoji"
+noto-fonts-emoji
+bluez
+bluez-utils"
 
 function common_check_ping () {
 	echo "Checking connectivity"
@@ -166,7 +168,9 @@ wl-clipboard
 sddm
 qt5-wayland
 qt6-wayland
-qt5-declarative"
+qt5-declarative
+bluez
+bluez-utils"
 
 function setup_sddm () {
   systemctl enable sddm
