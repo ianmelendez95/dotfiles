@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-LOG="/home/imelendez/.config/hypr/bin/toggle-laptop-monitor.log"
+LOG="$HOME/.config/hypr/bin/toggle-laptop-monitor.log"
 
 echo -e "\n--- START ---\n" >> $LOG
-hyprctl monitors 2>&1 >> $LOG
+hyprctl monitors | grep 'Monitor' 2>&1 >> $LOG
 echo "STATUS: $?" >> $LOG
 echo -e "\n--- END ---\n" >> $LOG
 
