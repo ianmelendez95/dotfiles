@@ -1,0 +1,1 @@
+KERNEL=="card1" SUBSYSTEM=="drm" ACTION=="change" RUN+="/usr/local/bin/reload-hyprctl.sh"
