@@ -129,6 +129,7 @@ alias chezall="chezmoi re-add"
 # git
 alias gs="git status"
 alias gcm="git commit -m"
+alias gl="git log"
 
 # setup_arch.sh
 alias csetup="vim ~/arch-setup/setup_arch.sh"
@@ -141,6 +142,7 @@ alias sz="source ~/.zshrc"
 # cabal
 alias cb="cabal build"
 alias ct="cabal test"
+alias cr="cabal repl"
 
 function ctm () {
   cabal test --test-options='-m "'"${1}"'"'

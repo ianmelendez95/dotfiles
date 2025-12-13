@@ -163,6 +163,7 @@ polkit
 mako
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
+hyprpaper
 hyprpolkitagent
 wl-clipboard
 sddm

@@ -20,12 +20,6 @@ return {
     build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install' 
   },
   { "nvim-tree/nvim-web-devicons", opts = {} },
-  {
-    'nvim-treesitter/nvim-treesitter',
-    lazy = false,
-    branch = 'main',
-    build = ':TSUpdate'
-  },
   { "neovim/nvim-lspconfig" },
   {
     'stevearc/oil.nvim',
@@ -44,5 +38,23 @@ return {
     config = true
     -- use opts = {} for passing setup options
     -- this is equivalent to setup({}) function
+  },
+  { "nvim-treesitter/nvim-treesitter", 
+    branch = 'master', 
+    lazy = false, 
+    build = ":TSUpdate",
+    opts = {
+      ensure_installed = { "haskell" },
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = true
+      },
+      indent = {
+        enable = true
+      }
+    },
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
   }
 }
