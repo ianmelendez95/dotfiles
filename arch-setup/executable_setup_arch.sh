@@ -171,7 +171,8 @@ qt5-wayland
 qt6-wayland
 qt5-declarative
 bluez
-bluez-utils"
+bluez-utils
+zathura"
 
 function setup_sddm () {
   systemctl enable sddm

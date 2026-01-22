@@ -1,14 +1,37 @@
 return {
-  {
-    "navarasu/onedark.nvim",
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      require('onedark').setup {
-        style = 'darker'
-        -- style = 'light'
-      }
-      require('onedark').load()
+  -- {
+  --   "navarasu/onedark.nvim",
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   config = function()
+  --     require('onedark').setup {
+  --       style = 'darker'
+  --       -- style = 'light'
+  --     }
+  --     require('onedark').load()
+  --   end
+  -- },
+  { 
+    "catppuccin/nvim", 
+    name = "catppuccin", 
+    priority = 1000,
+    config = function() 
+      vim.cmd('colorscheme catppuccin-mocha')
     end
+  },
+  -- {
+  --   'projekt0n/github-nvim-theme',
+  --   name = 'github-theme',
+  --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   config = function()
+  --     vim.cmd('colorscheme github_dark')
+  --   end,
+  -- },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
   },
   { "nvim-lua/plenary.nvim" },
   {
@@ -56,5 +79,8 @@ return {
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,
+  }, {
+    "sindrets/diffview.nvim",
+    lazy = false
   }
 }
