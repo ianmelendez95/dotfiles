@@ -29,6 +29,20 @@ hl.monitor({
     scale    = "auto",
 })
 
+hl.monitor({
+  output = "DP-3",
+  mode = "2560x1440@144.00Hz",
+  position = "auto",
+  scale = 1
+})
+
+hl.monitor({
+  output = "HDMI-A-1",
+  mode = "1920x1080@60.00Hz",
+  position = "auto-left",
+  scale = 1
+})
+
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -273,8 +287,8 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
+local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
