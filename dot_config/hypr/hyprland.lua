@@ -43,14 +43,6 @@ hl.monitor({
   scale = 1
 })
 
-hl.workspace_rule({
-  workspace = "name:side",
-  default = true,
-  monitor = "HDMI-A-1",
-  persistent = true
-})
-
-
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
@@ -79,7 +71,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
   hl.exec_cmd(browser)
   hl.exec_cmd("hypridle")
-  hl.exec_cmd("amixer -c 2 sset 'Auto-Mute Mode' Disabled") -- Find card with aplay -l
+  hl.exec_cmd("amixer -c 2 sset 'Auto-Mute Mode' Disabled") -- Prevent mute when headphones plugged in. Find card with aplay -l
 end)
 
 
@@ -298,7 +290,7 @@ hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager, { float = true }))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
@@ -319,8 +311,24 @@ hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
+    local s_name = "name:S" .. i
+
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+
+    -- Handle second monitor
+
+    -- Monitor binding on workspace creation only matches exact names, not
+    -- selectors like n[true], so each named workspace needs its own rule.
+    hl.workspace_rule({
+        workspace = s_name,
+        default = (i == 1),
+        monitor = "HDMI-A-1",
+        persistent = false
+    })
+
+    hl.bind(mainMod .. " + ALT + " .. key,       hl.dsp.focus({ workspace = s_name}))
+    hl.bind(mainMod .. " + SHIFT + ALT + " .. key, hl.dsp.window.move({ workspace = s_name }))
 end
 
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = 'up' }))
@@ -328,13 +336,9 @@ hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = 'down' }))
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = 'left' }))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = 'right' }))
 
--- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
-
 -- Scroll through existing workspaces with mainMod + scroll
--- hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
--- hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
