@@ -324,15 +324,21 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 
+    hl.workspace_rule({
+      workspace = i,
+      monitor = "DP-3",
+      persistent = false
+    })
+
     -- Handle second monitor
 
     -- Monitor binding on workspace creation only matches exact names, not
     -- selectors like n[true], so each named workspace needs its own rule.
     hl.workspace_rule({
-        workspace = s_name,
-        default = (i == 1),
-        monitor = "HDMI-A-1",
-        persistent = false
+      workspace = s_name,
+      default = (i == 1),
+      monitor = "HDMI-A-1",
+      persistent = false
     })
 
     hl.bind(mainMod .. " + ALT + " .. key,       hl.dsp.focus({ workspace = s_name}))
