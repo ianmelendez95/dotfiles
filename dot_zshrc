@@ -131,7 +131,7 @@ alias gs="git status"
 alias gcm="git commit -m"
 
 # setup_arch.sh
-alias csetup="vim ~/arch-setup/setup_arch.sh"
+alias csetup="vim ~/arch-setup/amd_setup_arch.sh"
 alias ssetup="source ~/arch-setup/setup_arch.sh"
 
 # zsh
@@ -144,6 +144,10 @@ alias ct="cabal test"
 
 function ctm () {
   cabal test --test-options='-m "'"${1}"'"'
+}
+
+function hlexec () {
+  hyprctl eval "hl.exec_cmd('${1}')"
 }
 
 function chezp () {
