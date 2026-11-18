@@ -15,7 +15,12 @@
 -- You can (and should!!) split this configuration into multiple files
 -- Create your files separately and then require them like this:
 -- require("myColors")
-
+--
+function usr_log(msg)
+  local f = assert(io.open("/home/imelendez/.config/hypr/usr.log", "a"))
+  f:write(msg .. "\n")
+  f:close()
+end
 
 ------------------
 ---- MONITORS ----
@@ -249,7 +254,7 @@ hl.config({
         kb_layout  = "us",
         kb_variant = "",
         kb_model   = "",
-        kb_options = "ctrl:nocaps",
+        kb_options = "ctrl:nocaps,shift:both_capslock",
         kb_rules   = "",
 
         follow_mouse = 1,
@@ -289,7 +294,7 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager, { float = true }))
@@ -299,9 +304,32 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
 -- Toggle the HDMI monitor on/off
 hl.bind("F12", function()
-    hdmiMonitor.disabled = not hdmiMonitor.disabled
-    hl.monitor(hdmiMonitor)
+  hdmiMonitor.disabled = not hdmiMonitor.disabled
+  hl.monitor(hdmiMonitor)
 end)
+
+-- local dpms_dispatched = false
+-- hl.bind("F11", function()
+--   usr_log("DPMS - dispatching")
+--   if dpms_dispatched then
+--     return
+--   end
+--
+--   dpms_dispatched = true
+--   hl.timer(function()
+--     usr_log("DPMS - toggling")
+--     hl.dispatch(hl.dsp.dpms({ 
+--       monitor = "HDMI-A-1",
+--       action = "toggle"
+--     }))
+--
+--     dpms_dispatched = false
+--     usr_log("DPMS - toggled")
+--   end, {timeout = 500, type = "oneshot"})
+--
+--   usr_log("DPMS - init")
+-- end)
+
 -- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Move focus with mainMod + arrow keys
